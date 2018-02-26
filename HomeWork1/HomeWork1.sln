@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "home_work_1", "home_work_1\home_work_1.csproj", "{01F9E140-D226-499D-BB20-495185D0207A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeWork1", "HomeWork1\HomeWork1.csproj", "{01F9E140-D226-499D-BB20-495185D0207A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -18,27 +18,36 @@ namespace HomeWork2
                 int year = AskDate("Birth year");
             try
             {
+                //Create new user instance
                 User user = new User(firstName, lastName, day, month, year);
-                Console.WriteLine(user.FullName + ' ' + user.Age());
+
+                //Write users full name and age to console and wait for key press
+                Console.WriteLine(String.Format("{0} {1}", user.FullName, user.Age()));
                 Console.ReadKey();
             }
-            catch(FormatException e)
+            catch (ArgumentOutOfRangeException e)
             {
+                //Write exception message to console and wait for key press
                 Console.WriteLine(e.Message);
                 Console.ReadKey();
             }
         }
 
+        //Asks for users name and returns answer (string)
         private static string AskName(string question)
         {
             Console.WriteLine(question);
             return Console.ReadLine();
         }
 
+        //Asks for date name and returns integer
         private static int AskDate(string question)
         {
             Console.WriteLine(question);
+
+            //Try parse users input to integer
             bool result = Int32.TryParse(Console.ReadLine(), out int datePart);
+            //Return result if integer else ask recursively again
             return result ? datePart : AskDate(question);
         }
     }

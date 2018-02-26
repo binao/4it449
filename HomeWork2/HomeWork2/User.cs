@@ -10,23 +10,47 @@ namespace HomeWork2
     {
         string firstName;
         string lastName;
-        DateTime bornDate;
+        DateTime birthDate;
 
         public string FirstName { get => firstName; set => firstName = value; }
         public string LastName { get => lastName; set => lastName = value; }
-        public DateTime BornDate { get => bornDate; set => bornDate = value; }
-        public string FullName { get => firstName+' '+lastName;}
+        public DateTime BirthDate { get => birthDate; set => birthDate = value; }
+        public string FullName { get => String.Format("{0} {1}", firstName, lastName); }
 
         public User(string firstName, string lastName, int day, int month, int year)
         {
             this.firstName = firstName;
             this.lastName = lastName;
-            this.bornDate = new DateTime(year, month, day);
+            this.birthDate = ConvertToBirthDate(year, month, day);
         }
 
         public int Age()
         {
-            return DateTime.Now.Year - bornDate.Year;
+            DateTime currentDate = DateTime.Now;
+            //calculate age from year difference
+            int age = currentDate.Year - birthDate.Year;
+
+            //return decremented age if birthdate not overlaping currentdate
+            return NotOverlaping(currentDate, birthDate) ? --age : age;
+        }
+
+        //Check if birth date is not overlapping current date
+        private bool NotOverlaping(DateTime currentDate, DateTime birthDate)
+        {
+            return (currentDate.Month < birthDate.Month ||
+                      (currentDate.Month == birthDate.Month &&
+                       currentDate.Day < birthDate.Day));
+        }
+
+        /*Create new DateTime from integer params
+        throws ArgumentOutOfRangeException if not valid*/
+        private DateTime ConvertToBirthDate(int year, int month, int day)
+        {
+            birthDate = new DateTime(year, month, day);
+
+            //throw ArgumentOutOfRangeException if birthdate in future
+            if (birthDate > DateTime.Now) throw new ArgumentOutOfRangeException();
+            return birthDate;
         }
     }
 }
