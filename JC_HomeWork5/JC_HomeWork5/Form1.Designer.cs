@@ -33,11 +33,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textCustomerBox = new System.Windows.Forms.TextBox();
             this.orderDataGridView = new System.Windows.Forms.DataGridView();
+            this.loadingLabel = new System.Windows.Forms.TextBox();
+            this.orderDOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.orderIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.orderDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.orderDOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.loadingLabel = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.orderDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderDOBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -69,6 +69,7 @@
             this.textCustomerBox.Name = "textCustomerBox";
             this.textCustomerBox.Size = new System.Drawing.Size(441, 22);
             this.textCustomerBox.TabIndex = 2;
+            this.textCustomerBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textCustomerBox_KeyDown);
             // 
             // orderDataGridView
             // 
@@ -94,34 +95,6 @@
             this.orderDataGridView.TabIndex = 3;
             this.orderDataGridView.Visible = false;
             // 
-            // orderIDDataGridViewTextBoxColumn
-            // 
-            this.orderIDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.orderIDDataGridViewTextBoxColumn.DataPropertyName = "OrderID";
-            this.orderIDDataGridViewTextBoxColumn.HeaderText = "OrderID";
-            this.orderIDDataGridViewTextBoxColumn.Name = "orderIDDataGridViewTextBoxColumn";
-            this.orderIDDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // orderDateDataGridViewTextBoxColumn
-            // 
-            this.orderDateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.orderDateDataGridViewTextBoxColumn.DataPropertyName = "OrderDate";
-            this.orderDateDataGridViewTextBoxColumn.HeaderText = "OrderDate";
-            this.orderDateDataGridViewTextBoxColumn.Name = "orderDateDataGridViewTextBoxColumn";
-            this.orderDateDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // LastName
-            // 
-            this.LastName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.LastName.DataPropertyName = "LastName";
-            this.LastName.HeaderText = "EmployeeLastName";
-            this.LastName.Name = "LastName";
-            this.LastName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // orderDOBindingSource
-            // 
-            this.orderDOBindingSource.DataSource = typeof(JC_HomeWork5.DataObjects.OrderDO);
-            // 
             // loadingLabel
             // 
             this.loadingLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -139,6 +112,30 @@
             this.loadingLabel.Text = "Loading, please wait...";
             this.loadingLabel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.loadingLabel.Visible = false;
+            // 
+            // orderDOBindingSource
+            // 
+            this.orderDOBindingSource.DataSource = typeof(JC_HomeWork5.DataObjects.OrderDO);
+            // 
+            // orderIDDataGridViewTextBoxColumn
+            // 
+            this.orderIDDataGridViewTextBoxColumn.DataPropertyName = "orderID";
+            this.orderIDDataGridViewTextBoxColumn.HeaderText = "orderID";
+            this.orderIDDataGridViewTextBoxColumn.Name = "orderIDDataGridViewTextBoxColumn";
+            // 
+            // orderDateDataGridViewTextBoxColumn
+            // 
+            this.orderDateDataGridViewTextBoxColumn.DataPropertyName = "orderDate";
+            this.orderDateDataGridViewTextBoxColumn.HeaderText = "orderDate";
+            this.orderDateDataGridViewTextBoxColumn.Name = "orderDateDataGridViewTextBoxColumn";
+            // 
+            // LastName
+            // 
+            this.LastName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.LastName.DataPropertyName = "LastName";
+            this.LastName.HeaderText = "LastNameEmployee";
+            this.LastName.Name = "LastName";
+            this.LastName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // Form1
             // 
