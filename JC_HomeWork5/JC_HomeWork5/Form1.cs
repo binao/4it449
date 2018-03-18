@@ -43,5 +43,15 @@ namespace JC_HomeWork5
             }
             
         }
+
+        //Async method for load client date. The same method as in mouse button click (in addition to the assignment).
+        private async void textCustomerBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1_MouseClickAsync( sender, null);
+            }
+        }
+
     }
 }
