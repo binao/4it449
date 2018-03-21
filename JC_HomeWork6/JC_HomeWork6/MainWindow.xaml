@@ -1,0 +1,83 @@
+﻿<Window x:Class="JC_HomeWork6.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JC_HomeWork6"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="550" MinWidth="460" MinHeight="200">
+    <Grid>
+        <!--Grid definition of part of the window-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="175"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="70"/>
+        </Grid.ColumnDefinitions>
+
+        <!--Label about necessary input - Customer ID -->
+        <Label
+            Grid.Row="0"
+            Grid.Column="0"
+            Name="nameLabel"
+            Content="Customer ID (GODOS, SUPRD):" />
+
+        <!--INPUT process Customer ID-->
+        <TextBox
+           Grid.Row="0"
+           Grid.Column="1"
+           Name="textCustomerBox"
+           Margin="0,4,5,4.4" />
+        
+        <!--Button to Load data from db and process them-->
+        <Button
+           Grid.Row="0"
+           Grid.Column="2"
+           Name="clickMeButton"
+           Content="Load"
+           Margin="5.2,4.4,5.4,4.6"
+           Click="clickMeButton_Click" />
+
+        <!--Space for show text about waiting-->
+        <Label
+            Grid.Row="1"
+            Grid.ColumnSpan="3"
+            Name="loadingLabel"
+            Content="Loadin data ..."
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="40px"
+            Visibility="Hidden"/>
+
+        <!--Space for show processed data-->
+        <DataGrid
+            Grid.Row="1"
+            Grid.ColumnSpan="3"
+            Name="orderDataGrid"
+            AutoGenerateColumns="False"
+            IsReadOnly="True"
+            SelectionMode="Single"
+            Margin="5"
+            Visibility="Visible">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="Order ID"
+                    Width="*"
+                    Binding="{Binding orderID, Mode=OneWay}" />
+                <DataGridTextColumn
+                    Header="Order Date"
+                    Width="*"
+                    Binding="{Binding orderDate, Mode=OneWay, StringFormat=dd-MM-yyyy}" 
+                    />
+                <DataGridTextColumn
+                    Header="Las Name of Employee"
+                    Width="*"
+                    Binding="{Binding lastName, Mode=OneWay}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
