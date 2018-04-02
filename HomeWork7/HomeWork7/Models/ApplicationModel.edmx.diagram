@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9d69d0e785af45d8bcd308909ef6502e" Name="Diagram1" ZoomLevel="58">
+        <EntityTypeShape EntityType="MyCSharpDotNetModel.Customer" Width="1.5" PointX="9.5" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyCSharpDotNetModel.Employee" Width="1.5" PointX="3.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyCSharpDotNetModel.Order" Width="1.5" PointX="11.75" PointY="0.625" IsExpanded="true" />
+        <AssociationConnector Association="MyCSharpDotNetModel.FK_Orders_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="MyCSharpDotNetModel.FK_Employees_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="MyCSharpDotNetModel.FK_Orders_Employees" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
