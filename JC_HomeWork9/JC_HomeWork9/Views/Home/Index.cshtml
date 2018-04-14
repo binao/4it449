@@ -1,0 +1,46 @@
+﻿@using JC_HomeWork9.Models;
+@using JC_HomeWork9.DataObjects;
+
+@model OrderModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Welcome</h2>
+
+<p class="text-success">@ViewBag.Greeting</p>
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+<div class="form-inline">
+    @Html.LabelFor(m => m.CustomerID, "CustomerID (GODOS, SUPRD): ")
+
+    @Html.TextBoxFor(m => m.CustomerID, new { @class = "form-control input-sm" })
+
+    <input type="submit" value="Load data" class="btn btn-default" />
+
+</div>
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Order Date</th>
+            <th>Employee last name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @*Data about order*@
+        @foreach (OrderDO order in ViewBag.Orders)
+        {
+            <tr>
+                <td>@order.orderID</td>
+                <td>@order.orderDate.Value.ToString("dd/MM/yyyy")</td>
+                <td>@order.lastName</td>
+            </tr>
+        }
+    </tbody>
+</table>
