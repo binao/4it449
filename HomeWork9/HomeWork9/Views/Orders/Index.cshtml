@@ -1,0 +1,50 @@
+﻿@model IEnumerable<HomeWork9.Models.Order>
+
+@{
+    ViewBag.Title = "Orders";
+}
+
+<h2>Orders</h2>
+
+
+@using (Html.BeginForm("Index", "Orders", FormMethod.Get))
+{
+    <div class="form-inline">
+        @Html.Label("CustomerID")
+
+        @Html.TextBox("CustomerId", null, new { @class = "form-control input-sm" })
+
+        <input type="submit" value="Load orders" class="btn btn-default" />
+    </div>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee.LastName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDate, "FormattedDateTime")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee.LastName)
+            </td>
+        </tr>
+    }
+
+</table>
