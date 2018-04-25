@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/JC_HomeWork11.DataObjects" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/JC_HomeWork11.DataObjects" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfOrderDO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderDO" nillable="true" type="tns:OrderDO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrderDO" nillable="true" type="tns:ArrayOfOrderDO" />
+  <xs:complexType name="OrderDO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="customerID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="orderDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="orderID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrderDO" nillable="true" type="tns:OrderDO" />
+</xs:schema>
