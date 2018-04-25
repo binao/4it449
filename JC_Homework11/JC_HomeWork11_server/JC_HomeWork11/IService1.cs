@@ -5,7 +5,7 @@ using System.ServiceModel;
 
 namespace JC_HomeWork11
 {
-    // POZNÁMKA: Pomocí příkazu Přejmenovat v nabídce Refaktorovat můžete změnit název rozhraní IServiceHomeWork společně v kódu i konfiguračním souboru.
+    // Servis method
     [ServiceContract]
     public interface IServiceHomeWork
     {

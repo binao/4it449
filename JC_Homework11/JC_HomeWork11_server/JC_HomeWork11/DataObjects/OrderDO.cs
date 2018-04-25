@@ -10,6 +10,7 @@ namespace JC_HomeWork11.DataObjects
 {
     public class OrderDO
     {
+        // OrderDO  variables for servis
         [DataMember]
         public int orderID { get; set; }
         [DataMember]

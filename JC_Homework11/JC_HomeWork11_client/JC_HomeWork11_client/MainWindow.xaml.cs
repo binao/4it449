@@ -16,6 +16,7 @@ namespace JC_HomeWork11_client
             InitializeComponent();
         }
 
+        // Click button call service with parametr from text box and show client's orders
         private async void clickMeButton_Click(object sender, RoutedEventArgs e)
         {
             loadingLabel.Content = "Loading, please wait...";

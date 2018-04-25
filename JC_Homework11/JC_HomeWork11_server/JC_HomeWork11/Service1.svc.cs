@@ -11,8 +11,7 @@ namespace JC_HomeWork11
     [ServiceBehavior(
     InstanceContextMode = InstanceContextMode.PerCall,
     ConcurrencyMode = ConcurrencyMode.Multiple)]
-    // POZNÁMKA: Pomocí příkazu Přejmenovat v nabídce Refaktorovat můžete změnit název třídy ServiceHomeWork společně v kódu, svc a konfiguračním souboru.
-    // POZNÁMKA: Pokud chcete spustit klienta testu WCF pro otestování této služby, vyberte v Průzkumníkovi řešení ServiceHomeWork.svc nebo ServiceHomeWork.svc.cs a spusťte ladění.
+    
     public class ServiceHomeWork : IServiceHomeWork
     {
 
