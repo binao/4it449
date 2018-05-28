@@ -1,0 +1,36 @@
+﻿
+@ViewBag.Message
+
+
+
+
+<div class="body">
+    <div class="row justify-content-between">
+        @{
+            foreach (KeyValuePair<MenuItem, PageContent> pageContent in ViewBag.secondaryContentBox)
+            {
+                <div onclick="location.href='@Url.Action(pageContent.Key.ToString(), "Home")'" class="col-2 no-quitter">
+                    <div class="bodyPartComponent menu">
+                        <object class="col imgHeight no-quitter clickablePicture" data="@pageContent.Value.picture" type="image/svg+xml"></object>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+    <div class="row choosenMenu">
+        <div class="col-8">
+            <div class="bodyPartComponent">
+                <p class="text-left componentText">
+                    @ViewBag.primaryContent.Value.shortText
+                </p>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="bodyPartComponent">
+                <object class="col imgHeight no-quitter" data="@ViewBag.primaryContent.Value.picture" type="image/svg+xml"></object>
+            </div>
+        </div>
+    </div>
+    <div class="articleText">@ViewBag.primaryContent.Value.longText</div>
+    @Html.Action("ContentTable", new { typeOfContent = ViewBag.primaryContent.Key.ToString() })
+</div>

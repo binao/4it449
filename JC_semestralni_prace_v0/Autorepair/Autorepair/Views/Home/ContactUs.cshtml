@@ -1,0 +1,63 @@
+﻿@using Autorepair.Models
+
+@model RequirementModel
+
+@using (Ajax.BeginForm("ContactUs", "Home", null, new AjaxOptions { UpdateTargetId = "ajaxReplace" }))
+{
+
+    <h3 class="text-center sendMessage">@ViewBag.Message</h3>
+
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true, "Části formuláře jsou špatně:", "p");
+
+    <div class="form-group row justify-content-center fromComponent">
+        @Html.LabelFor(m => m.FirstName, new { @class = "form-control input-sm col-3 formLabel contentText" })
+        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control input-sm col-6" })
+        @Html.ValidationMessageFor(m => m.FirstName, null, new { @class = "col-8 contentText" })
+    </div>
+
+    <div class="form-group row justify-content-center fromComponent">
+        @Html.LabelFor(m => m.LastName, new { @class = "form-control input-sm col-3 formLabel contentText" })
+        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control input-sm col-6" })
+        @Html.ValidationMessageFor(m => m.LastName, null, new { @class = "col-8 contentText" })
+    </div>
+
+    <div class="form-group row justify-content-center fromComponent">
+        @Html.LabelFor(m => m.Email, new { @class = "form-control input-sm col-3 formLabel contentText" })
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control input-sm col-6" })
+        @Html.ValidationMessageFor(m => m.Email, null, new { @class = "col-8 contentText" })
+    </div>
+
+    <div class="form-group row justify-content-center fromComponent">
+        @Html.LabelFor(m => m.Brand, new { @class = "form-control input-sm col-3 formLabel contentText" })
+        @Html.TextBoxFor(m => m.Brand, new { @class = "form-control input-sm col-6" })
+    </div>
+
+    <div class="form-group row justify-content-center fromComponent">
+        @Html.LabelFor(m => m.YearOfMade, new { @class = "form-control input-sm col-3 formLabel contentText" })
+        @Html.TextBoxFor(m => m.YearOfMade, new { @class = "form-control input-sm col-6" })
+    </div>
+
+    <div class="form-group row justify-content-center fromComponent">
+        @Html.LabelFor(m => m.EngineCapacity, new { @class = "form-control input-sm col-3 formLabel contentText" })
+        @Html.TextBoxFor(m => m.EngineCapacity, new { @class = "form-control input-sm col-6" })
+    </div>
+
+    <div class="form-group row justify-content-center fromComponent">
+        @Html.LabelFor(m => m.TypeOfEngine, new { @class = "form-control input-sm col-3 formLabel contentText" })
+        @Html.TextBoxFor(m => m.TypeOfEngine, new { @class = "form-control input-sm col-6" })
+    </div>
+
+
+    <div class="form-group row justify-content-center fromComponent">
+        @Html.LabelFor(m => m.DescriptionOfProblem, new { @class = "form-control input-sm col-3 formLabel contentText" })
+        @Html.TextBoxFor(m => m.DescriptionOfProblem, new { @class = "form-control input-sm col-6" })
+        @Html.ValidationMessageFor(m => m.DescriptionOfProblem, null, new { @class = "col-8 contentText" })
+    </div>
+
+
+    <div class="form-group row justify-content-center contentText fromComponent">
+        <input type="submit" value="Odeslat" class="btn btn-default" />
+    </div>
+}

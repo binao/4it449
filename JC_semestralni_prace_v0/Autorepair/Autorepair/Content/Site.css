@@ -1,0 +1,250 @@
+﻿/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+body {
+    background-image: url(https://us.123rf.com/450wm/welcomia/welcomia1207/welcomia120700106/14300996…-background-vertical-photo-engine-closeup-technology-photo-colle.jpg?ver=6);
+    background-color: #cccccc;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: inset 0 0 0 2000px rgba(102, 117, 127,0.8);
+}
+
+.header {
+    background-color: rgba(59, 80, 101, 0.9);
+    padding: 20px 35px 20px 20px;
+    /*padding-left: 20px;
+    padding-right: 35px;
+    padding-top: 20px;
+    padding-bottom: 20px;*/
+    height: 21vw;
+}
+
+.sameHeightAsParent {
+    height: 100%
+}
+
+.logoHeaderHeight {
+    height: 80%
+}
+
+.accountHeaderHeigh {
+    height: 75%
+}
+
+.body {
+    padding-left: 20px;
+    padding-right: 35px;
+}
+
+.bodyComponent {
+    border-radius: 10px;
+    background-color: rgba(59,80,101,1);
+    margin: 20px;
+}
+
+    .bodyComponent:hover {
+        background-color: rgba(80, 105, 130,1);
+    }
+
+.heightBodyComponent {
+    height: 50vw;
+}
+
+.imgHeight {
+    height: 100%;
+}
+
+.heightbodyPartComponent {
+    height: 25vw;
+}
+
+.footer {
+    background-color: rgba(59, 80, 101, 1);
+    padding: 20px 35px 40px 20px;
+    /*padding-left: 20px;
+    padding-right: 35px;
+    padding-bottom: 40px;
+    padding-top: 20px;*/
+}
+
+.rowBody {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+
+.bodyPartComponent {
+    border-radius: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.choosenMenu {
+    border-radius: 10px;
+    background-color: rgba(59, 80, 101, 1);
+    margin-bottom: 50px;
+    margin-top: 10px;
+}
+
+.componentText {
+    font-size: 5vw;
+    font-family: "Source Sans Pro";
+    color: white;
+    font-weight: bold;
+}
+
+
+.no-quitter {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.menu {
+    height: 10vw;
+    margin: 5px;
+    padding: 5px;
+    background-color: rgba(59,80,101,1);
+}
+
+.clickablePicture {
+    pointer-events: none;
+}
+
+.articleText {
+    font-family: "Source Sans Pro";
+    color: white;
+    font-weight: bold;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: justify;
+}
+
+.accountButton {
+    height: 80%;
+    width: 30%;
+    padding-bottom: 30%;
+    border-radius: 10px;
+    background-color: rgba(59,80,101,1);
+}
+
+
+
+.square {
+    position: relative;
+}
+
+    .square:after {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+    }
+
+.content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin-top:10px;
+}
+
+.accountPictureHeight {
+    height:70%;
+}
+
+.accountTextHeight {
+    height: 30%;
+}
+
+.tableContentHeader {
+    color: white;
+    text-align: center;
+    background-color: rgba(51,153,255,0.4);
+}
+
+.tableContent td, .tableContent th {
+    border: 1px solid #dee2e6;
+}
+
+.contentText {
+    color: white;
+    font-family: Source Sans Pro;
+}
+
+.buttonContactUs {
+    background-color: rgba(59, 80, 101, 1);
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+
+
+.formLabel {
+    background-color: transparent;
+    border: none;
+}
+
+.fromComponent {
+    margin-left:0px;
+    margin-right:0px;
+}
+
+
+.field-validation-error {
+    color: #fd8482;
+    font-weight: bold;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error, textarea.input-validation-error {
+    border: 3px solid #b94a48;
+}
+
+
+.validation-summary-errors {
+    color: #fd8482;
+    font-weight: bold;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.sendMessage {
+    color: #69ff5c;
+    font-weight: bold;
+    font-family: Source Sans Pro;
+}
+
+.adminTable {
+    font-size:8px;
+}
+
+.adminBody {
+    height: -webkit-fill-available;
+}
+
+.logOff{
+    text-align:right;
+    margin-top:10px;
+}
