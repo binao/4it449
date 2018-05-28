@@ -1,0 +1,66 @@
+﻿@using System.Collections.Generic;
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div class="body">
+    @* Automatic generate content depend on PageContent *@
+    @{ int a = 0;
+        KeyValuePair<MenuItem, PageContent> firstContent = new KeyValuePair<MenuItem, PageContent>();
+        int countOfContent = Enumerable.Count(ViewBag.pageContentBox);
+        foreach (KeyValuePair<MenuItem, PageContent> pageContent in ViewBag.pageContentBox)
+        {
+
+            if (a % 2 == 1)
+            {
+                <div class="row rowBody">
+                    <div onclick="location.href='@Url.Action(firstContent.Key.ToString(), "Home")'" class="col bodyComponent heightBodyComponent">
+                        <div class="bodyPartComponent heightbodyPartComponent">
+                            <p class="text-left componentText">
+                                @firstContent.Value.shortText
+
+                            </p>
+                        </div>
+                        <div class="bodyPartComponent heightbodyPartComponent">
+                            <object class="col imgHeight no-quitter clickablePicture" data="@firstContent.Value.picture" type="image/svg+xml"></object>
+                        </div>
+                    </div>
+
+                    <div onclick="location.href='@Url.Action(pageContent.Key.ToString(), "Home")'" class="col bodyComponent heightBodyComponent">
+                        <div class="bodyPartComponent heightbodyPartComponent">
+                            <p class="text-right componentText">
+                                @pageContent.Value.shortText
+                            </p>
+                        </div>
+                        <div class="bodyPartComponent heightbodyPartComponent">
+                            <object class="col imgHeight no-quitter clickablePicture" data="@pageContent.Value.picture" type="image/svg+xml"></object>
+                        </div>
+                    </div>
+                </div>
+            }
+            else if (a == (countOfContent - 1) && a % 2 == 0)
+            {
+                <div class="row rowBody">
+                    <div onclick="location.href='@Url.Action(pageContent.Key.ToString(), "Home")'" class="col bodyComponent heightBodyComponent">
+                        <div class="bodyPartComponent heightbodyPartComponent">
+                            <p class="text-left componentText">
+                                @pageContent.Value.shortText
+                            </p>
+                        </div>
+                        <div class="bodyPartComponent heightbodyPartComponent">
+                            <object class="col imgHeight no-quitter clickablePicture" data="@pageContent.Value.picture" type="image/svg+xml"></object>
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                firstContent = pageContent;
+            }
+            a++;
+        }
+    }
+
+</div>

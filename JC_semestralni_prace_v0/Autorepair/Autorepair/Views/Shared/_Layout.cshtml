@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title – Moje aplikace ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="header">
+        <div class="row sameHeightAsParent">
+            <div class="col align-self-center sameHeightAsParent" onclick="location.href='@Url.Action("Index", "Home")'">
+                <object class="sameHeightAsParent clickablePicture" data="Pictures/logo.svg" type="image/svg+xml"></object>
+            </div>
+            @* Preparation for accounts *@
+            @*<div class="col align-self-center sameHeightAsParent">
+                    <div class="square accountButton float-right">
+                        <div class="content">
+                            <div class="row accountPictureHeight">
+                                <object class="col sameHeightAsParent" data="Pictures/person.svg" type="image/svg+xml"></object>
+                            </div>
+                            <div class="row accountTextHeight">
+                                <div class="col">Test</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+        </div>
+    </div>
+
+
+    @RenderBody()
+
+    <div class="footer">
+        <div class="row">
+            <div onclick="location.href='@Url.Action("AdminRequirment", "Home")'">Jan Černý 2018</div>
+        </div>
+    </div>
+
+
+    @Scripts.Render("~/bundles/popper")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryunob")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿@using Autorepair.DataObjects;
+
+<table class="table tableContent">
+    <thead class="tableContentHeader">
+        <tr>
+            <th>Naše služby</th>
+        </tr>
+    </thead>
+    <tbody>
+        @*Data about order*@
+        @foreach (ProductDO product in ViewBag.Products)
+        {
+            <tr>
+                <td class="contentText">@product.ProductName</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="row">
+    <div class="col text-center">
+        <div  onclick='location.href="@Url.Action("MESSAGE", "Home")"' class="btn buttonContactUs">
+            Kontaktujte nás!
+        </div>
+    </div>
+</div>
+
+@ViewBag.text

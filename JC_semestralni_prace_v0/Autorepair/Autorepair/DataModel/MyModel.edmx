@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AutorepairModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryShortCut" Type="varchar(max)" Nullable="false" />
+          <Property Name="CategoryName" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductName" Type="text" Nullable="false" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Requirments">
+          <Key>
+            <PropertyRef Name="RequirmentsID" />
+          </Key>
+          <Property Name="RequirmentsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RequirmentsFirstName" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="RequirmentsLastName" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="RequirmentsEmail" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RequirmentsBrand" Type="varchar" MaxLength="20" />
+          <Property Name="RequirmentsYearOfMade" Type="date" />
+          <Property Name="RequirmentsEngineCapacity" Type="float" />
+          <Property Name="RequirmentsTypeOfEngine" Type="varchar(max)" />
+          <Property Name="RequirmentsDescriptionOfProblem" Type="text" />
+          <Property Name="RequirmentsStatus" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Products_ToTable">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AutorepairModelStoreContainer">
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Requirments" EntityType="Self.Requirments" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Products_ToTable" Association="Self.FK_Products_ToTable">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AutorepairModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryShortCut" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CategoryName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Products_ToTable" FromRole="Categories" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Products_ToTable" FromRole="Products" ToRole="Categories" />
+        </EntityType>
+        <Association Name="FK_Products_ToTable">
+          <End Role="Categories" Type="Self.Category" Multiplicity="1" />
+          <End Role="Products" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AutorepairEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <AssociationSet Name="FK_Products_ToTable" Association="Self.FK_Products_ToTable">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <EntitySet Name="Requirments" EntityType="AutorepairModel.Requirment" />
+        </EntityContainer>
+        <EntityType Name="Requirment">
+          <Key>
+            <PropertyRef Name="RequirmentsID" />
+          </Key>
+          <Property Name="RequirmentsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RequirmentsFirstName" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="RequirmentsLastName" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="RequirmentsEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RequirmentsBrand" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="RequirmentsYearOfMade" Type="DateTime" Precision="0" />
+          <Property Name="RequirmentsEngineCapacity" Type="Double" />
+          <Property Name="RequirmentsTypeOfEngine" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="RequirmentsDescriptionOfProblem" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="RequirmentsStatus" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AutorepairModelStoreContainer" CdmEntityContainer="AutorepairEntities">
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="AutorepairModel.Category">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryShortCut" ColumnName="CategoryShortCut" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="AutorepairModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Requirments">
+            <EntityTypeMapping TypeName="AutorepairModel.Requirment">
+              <MappingFragment StoreEntitySet="Requirments">
+                <ScalarProperty Name="RequirmentsStatus" ColumnName="RequirmentsStatus" />
+                <ScalarProperty Name="RequirmentsDescriptionOfProblem" ColumnName="RequirmentsDescriptionOfProblem" />
+                <ScalarProperty Name="RequirmentsTypeOfEngine" ColumnName="RequirmentsTypeOfEngine" />
+                <ScalarProperty Name="RequirmentsEngineCapacity" ColumnName="RequirmentsEngineCapacity" />
+                <ScalarProperty Name="RequirmentsYearOfMade" ColumnName="RequirmentsYearOfMade" />
+                <ScalarProperty Name="RequirmentsBrand" ColumnName="RequirmentsBrand" />
+                <ScalarProperty Name="RequirmentsEmail" ColumnName="RequirmentsEmail" />
+                <ScalarProperty Name="RequirmentsLastName" ColumnName="RequirmentsLastName" />
+                <ScalarProperty Name="RequirmentsFirstName" ColumnName="RequirmentsFirstName" />
+                <ScalarProperty Name="RequirmentsID" ColumnName="RequirmentsID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
